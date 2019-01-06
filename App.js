@@ -1,6 +1,9 @@
 import React  from 'react';
 import { StyleSheet, View } from 'react-native';
-import Camera from './components/Camera.js';
+import {Icon, Root} from 'native-base';
+import {createBottomTabNavigator} from 'react-navigation';
+import {createMaterialBottomTabNavigator, createSwitchNavigator} from 'react-navigation-material-bottom-tabs';
+import LoadingScreen from './src/router';
 
 export default class App extends React.Component {
 
@@ -11,19 +14,9 @@ export default class App extends React.Component {
 
 	render() {
 		return (
-			<View style={styles.container}>
-				<Camera />
-		 	</View>
+			<Root>
+				<LoadingScreen />
+		 	</Root>
 		);
 	}
 }
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: '#fff',
-		alignItems: 'center',
-		justifyContent: 'center',	
-	}
-});
-

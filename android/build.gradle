@@ -16,25 +16,29 @@ buildscript {
 allprojects {
     repositories {
         mavenLocal()
-        jcenter()
         google()
-        maven { url "https://jitpack.io" }
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
+        jcenter()
         maven {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
             url "$rootDir/../node_modules/react-native/android"
         }
+        maven { url "https://jitpack.io" }
     }
 }
 
 subprojects {
- project.configurations.all {
-    resolutionStrategy.eachDependency { details ->
-       if (details.requested.group == 'com.android.support'
-             && !details.requested.name.contains('multidex') ) {
-          details.useVersion "26.1.0"
-       }
+    afterEvaluate {project ->
+        if (project.hasProperty("android")) {
+            android {
+                compileSdkVersion 27
+                buildToolsVersion "27.0.2"
+            }
+        }
     }
- }
 }
 
 ext {
