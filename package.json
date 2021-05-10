@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "clarifai": "^2.8.1",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.21",
     "native-base": "^2.8.1",
     "react": "16.4.1",
     "react-native": "0.56.0",
